@@ -1,0 +1,96 @@
+site_name: Edilzen – Documentazione utente
+site_description: Guida alle funzioni della piattaforma Edilzen (app.edilzen.com)
+site_url: https://docs.edilzen.com
+docs_dir: docs
+site_dir: site
+use_directory_urls: true
+
+theme:
+  name: material
+  language: it
+  features:
+    - navigation.sections
+    - navigation.expand
+    - navigation.top
+    - navigation.footer
+    - navigation.indexes
+    - search.suggest
+    - search.highlight
+    - content.code.copy
+    - toc.follow
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: deep orange
+      accent: deep orange
+      toggle:
+        icon: material/weather-night
+        name: Passa al tema scuro
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: deep orange
+      accent: deep orange
+      toggle:
+        icon: material/weather-sunny
+        name: Passa al tema chiaro
+
+extra_css:
+  - stylesheets/extra.css
+
+plugins:
+  - search:
+      lang: it
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - md_in_html
+  - tables
+  - def_list
+  - toc:
+      permalink: true
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.tasklist:
+      custom_checkbox: true
+
+nav:
+  - Introduzione: index.md
+  - Navigazione generale: navigazione.md
+  - Comportamenti comuni: comportamenti-comuni.md
+  - Panoramica:
+      - Dashboard: dashboard.md
+  - Gestione cantiere:
+      - Cantieri: cantieri.md
+      - Cronoprogrammi: cronoprogrammi.md
+  - Gestione aziendale:
+      - Personale (Dipendenti): personale.md
+      - Clienti: clienti.md
+      - Veicoli: veicoli.md
+      - Scadenze: scadenze.md
+      - Azienda: azienda.md
+  - Applicazione:
+      - Rapportini: rapportini.md
+      - DDT: ddt.md
+      - SAL: sal.md
+      - Fatture: fatture.md
+      - Fatture in entrata: fatture-in-entrata.md
+      - Chiedi a Edilzen: chiedi-a-edilzen.md
+  - Impostazioni:
+      - Bot Telegram e WhatsApp: bot.md
+      - Team e ruoli: team.md
+      - Fatturazione: fatturazione.md
+      - Dati legali: dati-legali.md
+      - Profilo azienda: profilo-azienda.md
+  - Riferimenti:
+      - Glossario: glossario.md
+      - FAQ e flussi tipici: faq.md
+      - Note e limitazioni: note-limitazioni.md
+
+validation:
+  omitted_files: warn
+  absolute_links: warn
+  unrecognized_links: warn
+  anchors: warn
