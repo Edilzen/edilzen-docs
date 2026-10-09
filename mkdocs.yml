@@ -1,13 +1,20 @@
-site_name: Edilzen – Documentazione utente
+site_name: Edilzen Docs
 site_description: Guida alle funzioni della piattaforma Edilzen (app.edilzen.com)
 site_url: https://docs.edilzen.com
+site_author: Edilzen
 docs_dir: docs
 site_dir: site
 use_directory_urls: true
+copyright: "&copy; Edilzen — <a href='https://edilzen.com'>edilzen.com</a> · <a href='https://app.edilzen.com'>app.edilzen.com</a>"
 
 theme:
   name: material
   language: it
+  logo: assets/logo.svg
+  favicon: assets/favicon.svg
+  font:
+    text: Plus Jakarta Sans
+    code: IBM Plex Mono
   features:
     - navigation.sections
     - navigation.expand
@@ -21,21 +28,31 @@ theme:
   palette:
     - media: "(prefers-color-scheme: light)"
       scheme: default
-      primary: deep orange
-      accent: deep orange
+      primary: custom
+      accent: custom
       toggle:
         icon: material/weather-night
         name: Passa al tema scuro
     - media: "(prefers-color-scheme: dark)"
       scheme: slate
-      primary: deep orange
-      accent: deep orange
+      primary: custom
+      accent: custom
       toggle:
         icon: material/weather-sunny
         name: Passa al tema chiaro
 
 extra_css:
   - stylesheets/extra.css
+
+extra:
+  generator: false
+  social:
+    - icon: material/web
+      link: https://edilzen.com
+      name: Sito Edilzen
+    - icon: material/open-in-new
+      link: https://app.edilzen.com
+      name: Apri l'app
 
 plugins:
   - search:
