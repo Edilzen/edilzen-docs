@@ -2,6 +2,10 @@
 
 Documentazione utente (in italiano) della piattaforma **app.edilzen.com**, scritta in Markdown e generata come sito statico con [MkDocs](https://www.mkdocs.org/) + [Material for MkDocs](https://squidfunk.github.io/mkdocs-material/).
 
+- Produzione: **https://docs.edilzen.com**
+- Preview Pages: **https://edilzen-docs.pages.dev**
+- Repo: **https://github.com/Edilzen/edilzen-docs**
+
 ## Struttura
 
 ```
@@ -12,39 +16,50 @@ edilzen-docs/
 │   ├── *.md            # una pagina per sezione dell'applicazione
 │   ├── img/            # screenshot (dati sensibili dell'account oscurati)
 │   └── stylesheets/extra.css
+├── .github/workflows/  # deploy automatico su Cloudflare Pages
 └── README.md
 ```
 
 ## Anteprima in locale
 
 ```bash
-python3 -m venv .venv
-source .venv/bin/activate
+python -m venv .venv
+# Windows: .\.venv\Scripts\Activate.ps1
+# macOS/Linux: source .venv/bin/activate
 pip install -r requirements.txt
 mkdocs serve            # http://127.0.0.1:8000
 mkdocs build --strict   # genera il sito statico in ./site
 ```
 
-## Deploy su Cloudflare Pages
+## Deploy (GitHub → Cloudflare Pages)
 
-1. Pubblica questa cartella in un repository Git (GitHub o GitLab).
-2. In Cloudflare: **Workers & Pages → Create → Pages → Connect to Git** e seleziona il repository.
-3. Imposta la build così:
+Ogni push su `main` esegue `.github/workflows/deploy.yml`: build MkDocs e upload sul progetto Pages `edilzen-docs`.
 
-| Impostazione | Valore |
-|--------------|--------|
-| Framework preset | `None` (oppure *MkDocs*) |
-| Build command | `pip install -r requirements.txt && mkdocs build` |
-| Build output directory | `site` |
-| Root directory | `/` (o la sottocartella che contiene `mkdocs.yml`) |
-| Variabile d'ambiente | `PYTHON_VERSION` = `3.12` |
+### Secret GitHub richiesti
 
-4. **Save and Deploy.** Ogni push sul branch di produzione ripubblica il sito.
+In **Settings → Secrets and variables → Actions** del repo:
 
-### Alternativa: upload diretto (senza Git)
+| Secret | Valore |
+|--------|--------|
+| `CLOUDFLARE_API_TOKEN` | Token API con permesso **Cloudflare Pages — Edit** (e Account — Read) |
+| `CLOUDFLARE_ACCOUNT_ID` | `3cba4a3cbdef2568cc875fe8818d94e0` |
+
+Crea il token su: https://dash.cloudflare.com/profile/api-tokens (template *Edit Cloudflare Workers* va bene).
+
+### Dominio `docs.edilzen.com`
+
+Il custom domain è già collegato al progetto Pages. Nel DNS di `edilzen.com` (account Cloudflare che gestisce la zona) aggiungi:
+
+| Type | Name | Content | Proxy |
+|------|------|---------|-------|
+| CNAME | `docs` | `edilzen-docs.pages.dev` | Proxied |
+
+Dopo la propagazione, lo stato del dominio in Pages passa ad *Active* e https://docs.edilzen.com diventa raggiungibile.
+
+### Deploy manuale locale
 
 ```bash
-pip install -r requirements.txt && mkdocs build
+pip install -r requirements.txt && mkdocs build --strict
 npx wrangler pages deploy site --project-name edilzen-docs
 ```
 
@@ -52,4 +67,4 @@ npx wrangler pages deploy site --project-name edilzen-docs
 
 - Modifica o aggiungi file in `docs/`.
 - Per nuove pagine aggiungi la voce nella sezione `nav:` di `mkdocs.yml`.
-- Esegui `mkdocs build --strict` per verificare link e riferimenti prima del deploy.
+- Esegui `mkdocs build --strict` per verificare link e riferimenti prima del push.
