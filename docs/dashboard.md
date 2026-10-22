@@ -2,119 +2,103 @@
 
 **Percorso:** Panoramica › Dashboard (`/dashboard`)
 
-La Dashboard è la pagina iniziale: *"La tua azienda a colpo d'occhio"*. Riassume lo stato economico, di avanzamento e di rischio di tutti i cantieri attivi. In alto è riportato il nome dell'azienda; sotto si trovano i riquadri (widget) descritti di seguito. Ogni riquadro ha in alto a destra un codice identificativo (es. *W01 · KPI-STRIP*, *W04 · PL-FORECAST*, *W10 · TABELLA-CANTIERI*, *W41 · BURN-RATE*), utile come riferimento.
+La Dashboard è la pagina iniziale e riassume in un'unica schermata l'andamento economico, la fatturazione, la cassa e l'avanzamento dei cantieri attivi. Sotto il titolo si trovano i riquadri descritti di seguito, nell'ordine in cui compaiono.
 
 ## Cosa trovi in questa pagina
 
 | Riquadro | Domanda a cui risponde |
 |----------|------------------------|
-| Comando portfolio | Come vanno complessivamente costi, tempi e margini? Quanti cantieri sono a rischio? |
-| Fatturato & netto | Quanto ho fatturato e guadagnato da inizio anno, e dove arriverò a fine anno? |
-| Cantieri attivi | Qual è la situazione di ciascun cantiere? |
-| Burn rate portfolio | Sto spendendo come previsto? |
-| Risk score | Perché un cantiere è a rischio? |
-| Quadrante CPI × SPI | Quali cantieri sono in ritardo e/o fuori budget? |
-| Meteo Cantieri | Il meteo ostacolerà i lavori? |
-| Cost-to-complete & VAC | Quanto manca da spendere e con quale margine finale? |
-| DDT da revisionare | Ci sono prezzi anomali nei DDT? |
-| Mappa cantieri | Dove sono i cantieri e quanto sono a rischio? |
+| [Indicatori principali](#indicatori-principali) (CPI, SPI, CV, DSCR) | Come vanno complessivamente costi e tempi dei cantieri? |
+| [Andamento dei cantieri](#fatturato-netto-anno-in-corso) | Come si sono mossi fatturato e utile nel periodo? |
+| [Distribuzione fatturato](#distribuzione-fatturato) | Quanto pesa ciascun cantiere sul fatturato? |
+| [Riepilogo economico](#riepilogo-economico) | Fatturato, costi, margine a finire e tempi di incasso e pagamento |
+| [Cash flow](#cash-flow) | Com'è la situazione di cassa e di debito mese per mese? |
+| [Fatturato e costi](#fatturato-e-costi) | Ogni cantiere attivo ha più ricavi o più costi? |
+| [Posizione di fatturazione](#posizione-di-fatturazione) | Ho fatturato più o meno di quanto ho maturato con i SAL? |
+| [Mappa dei cantieri](#mappa-cantieri) | Dove sono i cantieri e con quali indicatori? |
+| [Ritenute](#ritenute) | Quali ritenute ho subito o applicato e quando si svincolano? |
+| [Cantieri in ritardo](#cantieri-in-ritardo) | Quali cantieri sono in ritardo e di quanto? |
+| [Ore per punto di SAL](#ore-per-punto-di-sal) | Quante ore servono per ogni punto percentuale di avanzamento? |
 
-Nella Dashboard non si inseriscono dati: gli indicatori sono calcolati da Edilzen a partire dalle informazioni registrate nelle altre sezioni (cantieri, rapportini, DDT, fatture, SAL, cronoprogrammi).
+Nella Dashboard non si inseriscono dati: gli indicatori sono calcolati da Edilzen a partire dalle informazioni registrate nelle altre sezioni (cantieri, rapportini, DDT, fatture, SAL, cronoprogrammi, costi aziendali).
 
 ![Dashboard](img/01_dashboard.png){ .screenshot }
 
-## Comando portfolio
+## Indicatori principali
 
-*Indici EVM aggregati sui cantieri attivi – aggiornato oggi.*
+Striscia di quattro indicatori aggregati sui cantieri. Accanto a CPI e SPI compare uno scostamento in percentuale rispetto a 1 (es. *+12%* per un indice di 1,12), colorato in verde (da 1 in su), giallo (tra 0,90 e 1) o rosso (sotto 0,90).
 
-| Indicatore | Formula / significato mostrato | Come leggerlo |
-|------------|-------------------------------|---------------|
-| **CPI medio** | EV / AC | Sotto 1 = i costi sostenuti superano il valore guadagnato |
-| **SPI medio** | SAL vs tempo lavorativo di piano | Sotto 1 = avanzamento in ritardo rispetto al piano |
-| **VAC portfolio** | Valore contratto − EAC | Margine atteso a chiusura sull'insieme dei cantieri |
-| **A rischio** | N° cantieri a rischio / N° cantieri attivi | Cantieri con *risk score ≥ 60*, da seguire nella settimana |
+| Indicatore | Significato | Come leggerlo |
+|------------|-------------|---------------|
+| **CPI** | Indice di performance dei costi: EV / AC (valore guadagnato / costo effettivo) | Sotto 1 = i costi sostenuti superano il valore guadagnato |
+| **SPI** | Indice di performance dei tempi: SAL rispetto al tempo lavorativo di piano | Sotto 1 = avanzamento in ritardo rispetto al piano |
+| **CV** | Scostamento dei costi (*Cost Variance*), in € | Etichetta **Sotto il valore** (verde) se i costi sono sotto il valore guadagnato, **Oltre il valore** (rosso) se lo superano |
+| **DSCR** | Indice di copertura del debito (*Debt Service Coverage Ratio*) | Se il dato non è disponibile compare **—** |
 
 Per le definizioni vedi il [Glossario](glossario.md).
 
-## Fatturato & netto (anno in corso)
+## Andamento dei cantieri { #fatturato-netto-anno-in-corso }
 
-Grafico *cumulato da fatture e ledger*:
+Grafico con le linee **Fatturato** e **Utile** nel tempo. I pulsanti in alto cambiano il periodo mostrato: **Tutto**, **3 mesi**, **30 giorni**.
 
-| Elemento | Significato |
-|----------|-------------|
-| **FATTURATO** (linea blu) | Fatturato cumulato da inizio anno |
-| **NETTO** (linea scura) | Risultato netto cumulato |
-| Parte **tratteggiata** | Previsione *run‑rate* fino a fine anno |
-| **YTD** | Valore da inizio anno a oggi |
-| **NET FY** / **FY atteso** | Netto previsto a fine esercizio |
+## Distribuzione fatturato
 
-Lo stesso grafico compare in [Azienda › Panoramica](azienda.md#panoramica).
+Grafico ad anello con la quota di ciascun cantiere. Passando il mouse su uno spicchio compaiono **Valore contratto**, **Costi** e **Fatturato ad oggi** del cantiere. Se non ci sono importi compare *"Nessun fatturato"*.
 
-## Cantieri attivi
+## Riepilogo economico
 
-Tabella dei cantieri attivi con i principali indicatori per ciascuno:
+Quattro riquadri affiancati:
+
+| Riquadro | Valore | Etichetta sotto il valore |
+|----------|--------|---------------------------|
+| **Fatturato** | Fatturato complessivo | **Underbilling** (rosso) o **Overbilling** (verde) con l'importo: differenza tra quanto maturato con i SAL e quanto fatturato (vedi [Posizione di fatturazione](#posizione-di-fatturazione)) |
+| **Costi** | Costi complessivi | Il **CV** in € (verde se positivo, rosso se negativo) |
+| **Margine a finire** | Margine percentuale atteso | Il **VAC** in € (valore contratto − costo stimato a finire) |
+| **Incasso e pagamento** | Barre **DSO** (giorni medi di incasso dai clienti) e **DPO** (giorni medi di pagamento ai fornitori) | Differenza in giorni (*gg*): rossa se incassi più lentamente di quanto paghi, verde in caso contrario |
+
+## Cash flow
+
+Grafico a barre mensile con due serie: **Cassa** (barra scura) e **Debito** (barra chiara). Passando il mouse su un mese compaiono i due importi.
+
+Il riquadro colorato accanto alla legenda riporta il **saldo netto dell'ultimo mese** (cassa al netto del debito): rosso se negativo, verde se positivo. Non coincide quindi con il solo saldo di cassa.
+
+## Fatturato e costi
+
+Per ogni **cantiere attivo** mostra due barre, **Fatturato** e **Costi**, con i due importi. Gli importi sono evidenziati in rosso quando i costi superano il fatturato. Se non ci sono cantieri attivi compare *"Nessun cantiere attivo"*.
+
+## Posizione di fatturazione
+
+Tabella per cantiere che confronta l'avanzamento con quanto fatturato:
 
 | Colonna | Contenuto |
 |---------|-----------|
-| **Cantiere** | Nome del cantiere |
-| **Cliente** | Committente |
-| **SAL** | Percentuale di avanzamento |
-| **CPI** / **SPI** | Indici di costo e di tempo |
-| **VAC** | Margine atteso a chiusura |
-| **Ritardo** | *in linea* oppure ritardo stimato nel formato *+N gg · X k€* (giorni di ritardo e relativo impatto economico) |
-| **Risk** | Risk score con etichetta di fascia (es. *ALTO*, *BASSO*) |
+| **Cantiere** | Nome, cliente e barra della percentuale di costi |
+| **% costi** | Costi sostenuti in rapporto al budget (valore contratto al netto del margine target) |
+| **% SAL** | Avanzamento dell'ultimo SAL |
+| **Ricavi maturati** | Valore contratto × percentuale dell'ultimo SAL |
+| **Fatturato** | Importo fatturato al cliente |
+| **Posizione** | **Underbilling** (rosso): hai maturato più di quanto fatturato, quindi c'è lavoro da fatturare. **Overbilling** (verde): hai fatturato più di quanto maturato. **—** se le due cifre coincidono |
 
-La colonna **SAL** è rappresentata con una barra di avanzamento.
+## Mappa dei cantieri { #mappa-cantieri }
 
-Cliccando su una riga si apre la [scheda del cantiere](cantieri.md#scheda-di-dettaglio-del-cantiere).
+Riquadro **Cantieri** con la mappa geografica dei cantieri. Per ogni cantiere sono indicati **CPI**, **SPI** e **Rischio** (risk score). La posizione deriva dalle coordinate (Latitudine/Longitudine) presenti nel [Profilo del cantiere](cantieri.md#profilo); senza coordinate compare *"Nessun cantiere con coordinate"*.
 
-## Burn rate portfolio
+## Ritenute
 
-Confronta la **spesa effettiva** con quella **pianificata**.
+Due riquadri affiancati, ciascuno con il totale in alto:
 
-| Controllo / elemento | Cosa fa |
-|----------------------|---------|
-| **7G / 14G / 30G** | Cambia la finestra temporale (ultimi 7, 14 o 30 giorni) |
-| Serie **COSTI EFFETTIVI** | Spesa realmente sostenuta |
-| Serie **PIANO** | Spesa prevista dal piano |
-| Banda **μ ± 2σ** | Fascia di normalità (media ± due deviazioni standard) |
-| Pulsanti per cantiere (es. *Nome cantiere · CPI … · SPI …*) | Mostrano il burn rate del solo cantiere scelto |
-| **tutti** | Torna alla vista dell'intero portafoglio |
-| **+ / −** | Zoom avanti / indietro sul grafico |
+- **Ritenute subite** – per ogni voce: soggetto, cantiere, importo e data di scadenza;
+- **Ritenute applicate** – per ogni voce: soggetto, cantiere, importo e, se mancano al massimo 60 giorni, l'indicazione *"Svincolo tra N giorni"*.
 
-Una spesa che esce dalla banda segnala un'accelerazione o un rallentamento anomalo dei costi.
+Senza dati compare *"Nessuna ritenuta registrata"*.
 
-## Risk score
+## Cantieri in ritardo
 
-Spiega il punteggio di rischio attraverso **6 fattori esplicabili** (ad esempio **COSTI**, **TEMPI**, **DATI**), così da capire *perché* un cantiere è considerato a rischio e su quale aspetto intervenire.
+Tabella con **Cantiere**, **Giorni** di ritardo, **Sulla durata** (ritardo in percentuale sulla durata prevista) e **SV** (*Schedule Variance*, scostamento di programma). Se nessun cantiere è in ritardo compare *"Nessun cantiere in ritardo"*.
 
-## Quadrante CPI × SPI
+## Ore per punto di SAL
 
-Grafico a quattro quadranti che posiziona ogni cantiere in base a **CPI** (costi) e **SPI** (tempi): permette di distinguere a colpo d'occhio i cantieri in regola, quelli in ritardo, quelli fuori budget e quelli critici su entrambi i fronti.
-
-## Meteo Cantieri
-
-Previsioni meteo a **4 giorni** per i cantieri e conteggio dei **giorni a rischio meteo nei prossimi 14 giorni**, utile per riorganizzare le lavorazioni all'aperto.
-
-## Cost-to-complete & VAC
-
-Per ogni cantiere (vista **tutti**) mostra il **costo stimato per completare** i lavori e il **VAC** (margine atteso a chiusura).
-
-## DDT da revisionare
-
-Elenca i DDT con **anomalie di prezzo**, individuate statisticamente quando il prezzo di una riga si discosta dalla norma con uno **z‑score ≥ 2,5**. Da qui si individuano i documenti da controllare nella sezione [DDT](ddt.md).
-
-## Mappa cantieri
-
-Mappa geografica dei cantieri, colorati in base al risk score:
-
-| Colore / fascia | Risk score |
-|-----------------|-----------|
-| Rischio alto | ≥ 60 |
-| Rischio medio | 35 – 59 |
-| Rischio basso | < 35 |
-
-La posizione dei cantieri deriva dalle coordinate (Latitudine/Longitudine) presenti nel [Profilo del cantiere](cantieri.md#profilo).
+Per ogni cantiere: **Ore** lavorate, ore **Per punto** di SAL (ore lavorate divise per la percentuale dell'ultimo SAL, cioè le ore spese per ogni punto di avanzamento) e **Sul costo** (incidenza della manodopera sul costo totale del cantiere). Se l'incidenza della manodopera esce dalla fascia di riferimento compare l'etichetta **Sopra la fascia 18-28%** o **Sotto la fascia 18-28%**.
 
 !!! tip "Uso consigliato"
-    A inizio settimana controlla **A rischio** e la **Mappa**, apri il **Risk score** per capire quale fattore pesa di più, poi verifica **Meteo Cantieri** e **DDT da revisionare**.
+    A inizio settimana controlla **CPI** e **SPI**, poi la **Posizione di fatturazione** (per non lasciare lavoro maturato da fatturare) e i **Cantieri in ritardo**; infine verifica **Cash flow** e tempi di **Incasso e pagamento**.

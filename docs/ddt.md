@@ -41,7 +41,7 @@ Abbina le **righe dei DDT** agli **articoli delle fatture ricevute**: qui compai
 
 Stato vuoto: *"Nessun DDT da revisionare — Ogni DDT è completamente abbinato o in attesa di una fattura ricevuta."*
 
-La stessa revisione è disponibile in [Fatture in entrata › Abbinamento](fatture-in-entrata.md#abbinamento). I DDT con anomalie di prezzo compaiono anche nel widget *DDT da revisionare* della [Dashboard](dashboard.md#ddt-da-revisionare).
+La stessa revisione è disponibile in [Fatture in entrata › Abbinamento](fatture-in-entrata.md#abbinamento).
 
 ## Creare un DDT
 

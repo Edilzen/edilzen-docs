@@ -121,35 +121,41 @@ Intestazione: nome del cantiere e pulsante **⋯** (voce **Elimina**). Sette sch
 
 | Controllo | Cosa fa |
 |-----------|---------|
-| Interruttore **Includi costi aziendali** (in alto) | Aggiunge ai costi del cantiere la quota di costi aziendali (criterio scelto in [Profilo azienda](profilo-azienda.md)) e aggiorna margini e indicatori |
+| Interruttore **Includi costi aziendali** (in alto) | Aggiunge ai costi del cantiere la quota di costi aziendali (criterio scelto in [Profilo azienda](profilo-azienda.md)) e aggiorna costo finora, indicatori, residuo di budget e ripartizione costi |
 | **Cumulativo / Giornaliero** (grafico *Costi giornalieri*) | Mostra i costi sommati nel tempo oppure giorno per giorno |
 | **Categoria / Singolo articolo / Per data / Per documento** (*Risultati panoramica*) | Cambia il raggruppamento della tabella dei costi |
+| **Cerca costi** (*Risultati panoramica*) | Filtra la tabella per testo |
 | Selettore di periodo (*Risultati panoramica*, predefinito **1m Questo mese**) | Limita la tabella al periodo scelto (opzioni in [Comportamenti comuni](comportamenti-comuni.md#selettore-di-periodo)) |
 | Interruttore **Includi costi aziendali** (in *Risultati panoramica*) | Include i costi aziendali anche nella tabella |
 
-**Indicatori economici**
+**Indicatori**
+
+Quattro riquadri in alto:
 
 | Riquadro | Significato |
 |----------|-------------|
-| **Valore contratto** | Importo contrattuale |
-| **Margine teorico** | Margine previsto (€ e %) |
-| **Margine reale** | Valore contratto meno costi effettivi (€ e %) |
-| **Costo finora** | Totale dei costi registrati |
-| **ROI (solo cantiere)** | Ritorno sui soli costi diretti |
-| **ROI (con costi aziendali)** | Ritorno includendo la quota di costi aziendali |
+| **Valore contratto** | Importo contrattuale impostato nel [Profilo](#profilo); *Non impostato* se manca |
+| **Costo finora** | Totale dei costi registrati (con o senza costi aziendali, secondo l'interruttore) |
+| **CPI** | *EV / AC · sotto 1 = costi sopra il guadagnato* |
+| **SPI** | *SAL vs tempo lavorativo di piano* |
 
-**Indicatori EVM**
+CPI e SPI sono colorati in verde (da 1 in su), giallo (tra 0,90 e 1) o rosso (sotto 0,90); se l'indice non è calcolabile compare **—**.
 
-| Riquadro | Descrizione mostrata |
-|----------|----------------------|
-| **CPI** | EV / AC · sotto 1 = costi sopra il guadagnato |
-| **SPI** | SAL vs tempo lavorativo di piano |
-| **VAC** | Valore contratto − EAC · margine atteso a chiusura |
-| **Rischio** | Risk score del cantiere |
+**Costi giornalieri** – grafico per **Operai**, **Veicoli**, **Materiali** (e **Costi aziendali** se inclusi). In vista *Cumulativo* la linea orizzontale di riferimento è il **Valore contratto**; in vista *Giornaliero* è il **Valore contratto giornaliero** (valore contratto diviso per i giorni del cantiere).
 
-**Ripartizione costi** – Totale e suddivisione **Operai**, **Veicoli**, **Materiali**, in € e %.
+**Riepilogo budget** – riquadro con:
 
-**Costi giornalieri** – grafico per Materiali, Veicoli, Operai con la linea orizzontale **Valore contratto** come riferimento.
+| Elemento | Significato |
+|----------|-------------|
+| **Residuo di budget** | Margine rimasto: valore contratto meno costi sostenuti (rosso se negativo) |
+| **VAC** | Valore contratto − EAC: margine atteso a chiusura (rosso se negativo) |
+| **SAL** | Grafico ad anello con la percentuale dell'ultimo SAL |
+
+**Ripartizione costi** – **Totale** e suddivisione **Operai**, **Veicoli**, **Materiali** (e **Costi aziendali** se inclusi), in € e %.
+
+**Meteo cantiere** – previsioni per i prossimi giorni nella località del cantiere, con il conteggio *"N giorni a rischio su M"*.
+
+**Risultati panoramica** – tabella dei costi con colonne **Documento** (es. *Rapportino #n*), **Nome**, **Data**, **Tipo di costo**, **Note**, **Valore**; la riga **Costi aziendali** apre il dettaglio della quota aziendale del mese (*Costo*, *Categoria*, *Quota*, *Quota mensile aziendale*).
 
 **Stato vuoto**: se nel periodo non ci sono costi, la tabella mostra *"Nessun costo registrato"*.
 
@@ -203,7 +209,7 @@ Intestazione: nome del cantiere e pulsante **⋯** (voce **Elimina**). Sette sch
 | **Esporta ▾** | Esporta in **JSON**, **PNG**, **SVG** o **PDF** |
 | **Salvato** | Indicatore di salvataggio automatico |
 
-![Colonne nascoste](img/11_gantt_after_colonne.png){ .screenshot }
+![Colonne Inizio, gg ed € visibili dopo il clic su Colonne](img/11_gantt_after_colonne.png){ .screenshot }
 
 #### Griglia attività
 
