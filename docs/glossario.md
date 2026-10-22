@@ -23,7 +23,7 @@ VAC – Variance At Completion
 :   **VAC = Valore contratto − EAC.** È il **margine atteso a chiusura**: positivo = guadagno previsto, negativo = perdita prevista.
 
 Risk score
-:   Punteggio di rischio del cantiere calcolato da Edilzen e spiegato da **6 fattori** (es. COSTI, TEMPI, DATI). Fasce: **≥ 60** alto (cantiere *a rischio*, da seguire nella settimana), **35–59** medio, **< 35** basso. Vedi [Dashboard](dashboard.md#risk-score).
+:   Punteggio di rischio del cantiere calcolato da Edilzen e spiegato da **6 fattori** (es. COSTI, TEMPI, DATI). Fasce: **≥ 60** alto (cantiere *a rischio*, da seguire nella settimana), **35–59** medio, **< 35** basso. Vedi [Dashboard](dashboard.md#mappa-cantieri).
 
 ## Indicatori economici del cantiere
 
