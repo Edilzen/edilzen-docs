@@ -209,7 +209,7 @@ CPI e SPI sono colorati in verde (da 1 in su), giallo (tra 0,90 e 1) o rosso (so
 | **Esporta ▾** | Esporta in **JSON**, **PNG**, **SVG** o **PDF** |
 | **Salvato** | Indicatore di salvataggio automatico |
 
-![Colonne nascoste](img/11_gantt_after_colonne.png){ .screenshot }
+![Colonne Inizio, gg ed € visibili dopo il clic su Colonne](img/11_gantt_after_colonne.png){ .screenshot }
 
 #### Griglia attività
 
